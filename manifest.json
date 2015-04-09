@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "DOMWayFinder",
+
+  "description": "Get the way to element.",
+  "version": "0.1",
+  "background": {
+      "scripts": ["event.js"],
+      "persistent": false
+  },
+  "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "result_page.html"
+  },
+  "permissions": [
+      "tabs", 
+      "http://*/*", 
+      "https://*/*"
+  ]
+}

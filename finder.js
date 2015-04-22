@@ -36,7 +36,6 @@ function getFullPath() {
 }
 
 var path = getFullPath();
-console.log(path);
 
 chrome.runtime.sendMessage({
     'full_path': path

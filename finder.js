@@ -1,23 +1,29 @@
 function getFullPath() {
     function getValue(current_node) {
         var result = current_node.tagName.toLowerCase();
-        var _class = current_node.getAttribute('class');
-        if (_class) {
-            result += '.' + _class;
-        } else {
-            var _id = current_node.getAttribute('id');
-            if (_id) {
-                result += '#' + _id;
+        if (result != 'tbody') {
+            var _class = current_node.getAttribute('class');
+            if (_class) {
+                result += '.' + _class;
+            } else {
+                var _id = current_node.getAttribute('id');
+                if (_id) {
+                    result += '#' + _id;
+                }
             }
+            return result;
         }
-        return result;
+        return false
     }
 
     function getPath(node) {
         var result = getValue(node);
         while (node != document.body) {
             node = node.parentNode;
-            result = getValue(node) + " > " + result;
+            value = getValue(node);
+            if (value) {
+                result = getValue(node) + " > " + result;
+            }
         }
         return result;
     }
